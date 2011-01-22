@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="stopped">#ff000000</color>
+    <color name="working">#ff00ff00</color>
+    <color name="resting">#ffff0000</color>
+</resources>

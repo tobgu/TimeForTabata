@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/time_for_tabata_scroll_view"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout android:id="@+id/time_for_tabata_main_layout"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" >
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+ 
+    <TextView android:id="@+id/work_time_text"
+              android:text="Work Time (seconds):"
+              android:gravity="center_vertical"
+              android:layout_width="200dip"
+              android:layout_height="fill_parent" />
+                            
+    <EditText android:id="@+id/work_time"
+              android:layout_height="wrap_content"
+              android:layout_width="fill_parent"
+              android:text="20"
+              android:inputType="number"
+              android:maxLength="8" />
+
+  </LinearLayout>
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+ 
+    <TextView android:id="@+id/rest_text"
+              android:text="Rest Time (seconds):"
+              android:gravity="center_vertical"
+              android:layout_width="200dip"
+              android:layout_height="fill_parent" />
+                                         
+    <EditText android:id="@+id/rest_time"
+              android:layout_height="wrap_content"
+              android:text="10"
+              android:layout_width="fill_parent"
+              android:inputType="number"
+              android:maxLength="8" />
+              
+  </LinearLayout>
+  
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+  
+    <TextView android:id="@+id/repetition_text"
+              android:text="Number of repetitions:"
+              android:gravity="center_vertical"
+              android:layout_width="200dip"
+              android:layout_height="fill_parent" />
+            
+    <EditText android:id="@+id/repetition_no"
+              android:layout_height="wrap_content"
+              android:text="8"
+              android:layout_width="fill_parent"
+              android:inputType="number"
+              android:maxLength="8" />
+  </LinearLayout>
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+  
+    <TextView android:id="@+id/tabata_text"
+              android:text="Number of sets:"
+              android:gravity="center_vertical"
+              android:layout_width="200dip"
+              android:layout_height="fill_parent" />
+              
+    <EditText android:id="@+id/tabata_no"
+              android:layout_height="wrap_content"
+              android:text="1"
+              android:layout_width="fill_parent"
+              android:inputType="number"
+              android:maxLength="8" />
+  </LinearLayout>          
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+  
+    <TextView android:id="@+id/tabata_rest_text"
+              android:text="Rest time between sets:"
+              android:gravity="center_vertical"
+              android:layout_width="200dip"
+              android:layout_height="fill_parent" />
+  
+    <EditText android:id="@+id/tabata_rest_time"
+              android:layout_height="wrap_content"
+              android:text="60"
+              android:layout_width="fill_parent"
+              android:inputType="number"
+              android:maxLength="8" />
+  </LinearLayout>
+
+  <CheckBox android:id="@+id/play_sound_fx"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:text="Play sound effects"
+		    android:checked="true" />
+            	  
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+  
+    <TextView android:id="@+id/work_music_text"
+              android:text="Work music:"
+              android:gravity="center_vertical"
+              android:layout_width="wrap_content"
+              android:paddingRight="10sp"
+              android:layout_height="fill_parent"
+              android:layout_weight="0"/>
+  
+    <EditText android:id="@+id/work_music"
+              android:layout_height="wrap_content"
+              android:hint="No music played"
+              android:singleLine="true"
+              android:ellipsize="middle"
+              android:layout_width="0dip"
+              android:layout_weight="1" />
+              
+ 	<ImageButton android:id="@+id/work_music_choose" 
+    	         android:layout_width="wrap_content"
+   	             android:layout_height="wrap_content"
+                 android:src="@drawable/ic_launcher_folder_small"/>    
+    
+  </LinearLayout>
+  
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+  
+    <TextView android:id="@+id/rest_music_text"
+              android:text="Rest music:"
+              android:gravity="center_vertical"
+              android:layout_width="wrap_content"
+              android:paddingRight="10sp"
+              android:layout_height="fill_parent"
+              android:layout_weight="0"/>
+  
+    <EditText android:id="@+id/rest_music"
+              android:layout_height="wrap_content"
+              android:hint="No music played"
+              android:singleLine="true"
+              android:ellipsize="middle"
+              android:layout_width="0dip"
+              android:layout_weight="1" />
+              
+ 	<ImageButton android:id="@+id/rest_music_choose" 
+    	         android:layout_width="wrap_content"
+   	             android:layout_height="wrap_content"
+                 android:src="@drawable/ic_launcher_folder_small"/>
+  </LinearLayout>
+	  
+  <Button android:id="@+id/tabata_start" 
+   		  android:layout_width="fill_parent"
+   	      android:layout_height="wrap_content"
+          android:text="Start" />
+          	
+</LinearLayout>
+</ScrollView>
