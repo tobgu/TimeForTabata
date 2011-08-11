@@ -175,11 +175,13 @@ public class TimeForTabata extends Activity {
 			MusicPlayer musicPlayer = new MusicPlayer(intervalList,
 					restList);
 
-			IntervalSession intervalSession = new IntervalSession(workTime,
-					restTime,
-					intervalNo,
-					setRestTime,
-					setNo);
+			IntervalSessionDescription isd = new IntervalSessionDescription();
+			isd.workPeriod = workTime;
+			isd.interIntervalRestPeriod = restTime;
+			isd.intervalNo = intervalNo;
+			isd.interSetRestPeriod = setRestTime;
+			isd.setNo = setNo;
+			IntervalSession intervalSession = new IntervalSession(isd);
 
 			// Create new activity to display interval information
 			IntervalActivity.setIntervalSession(intervalSession);

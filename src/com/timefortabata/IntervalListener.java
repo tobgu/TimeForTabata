@@ -8,6 +8,6 @@ public interface IntervalListener {
 		                        TIMER_UPDATE, 
 		                        ABORT_SESSION};
 	
-	void handleIntervalEvent(IntervalEvent iv, IntervalInfo intervalInfo);
+	void handleIntervalEvent(IntervalEvent iv, IntervalSessionInfo intervalInfo);
 
 }

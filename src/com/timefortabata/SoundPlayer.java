@@ -22,7 +22,7 @@ public class SoundPlayer implements IntervalListener {
 		abortSessionId = soundPool.load(context, R.raw.boo, 0);
 	}
 
-	public void handleIntervalEvent(IntervalEvent iv, IntervalInfo intervalInfo) {
+	public void handleIntervalEvent(IntervalEvent iv, IntervalSessionInfo intervalInfo) {
 		// TODO: Perhaps replace this with a map instead
 		switch(iv){
 			case FINISH_SET:

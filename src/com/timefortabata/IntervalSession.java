@@ -30,8 +30,7 @@ public class IntervalSession implements IntervalTimerHandler{
 		}		
 		
 		public final void tickTimer(){
-			if(timeLeftInState > 0)
-			{
+			if(timeLeftInState > 0){
 				timeLeftInState--;
 				notifyListeners(IntervalListener.IntervalEvent.TIMER_UPDATE,
 						        timeLeftInState);
@@ -47,13 +46,11 @@ public class IntervalSession implements IntervalTimerHandler{
 				if(newState != this){
 					return newState.updateStateIfTimeout();
 				}
-				else
-				{
+				else{
 					return newState;
 				}
 			}
-			else
-			{
+			else{
 				return this;
 			}
 		}
@@ -61,8 +58,7 @@ public class IntervalSession implements IntervalTimerHandler{
 		abstract protected IntervalSessionState nextState();
 	}
 	
-	private class WorkState extends IntervalSessionState
-	{
+	private class WorkState extends IntervalSessionState{
 		public WorkState(){
 			super(workPeriod);
 			notifyListeners(IntervalListener.IntervalEvent.START_INTERVAL,
@@ -76,20 +72,17 @@ public class IntervalSession implements IntervalTimerHandler{
 				if(setsLeftInSession == 0){
 					return new FinishState();
 				}
-				else
-				{
+				else{
 					return new SetRestState();
 				}
 			}
-			else
-			{
+			else{
 				return new IntervalRestState();
 			}			
 		}
 	}
 
-	private class FinishState extends IntervalSessionState
-	{
+	private class FinishState extends IntervalSessionState{
 		public FinishState(){
 			super(0);
 			notifyListeners(IntervalListener.IntervalEvent.FINISH_SESSION,
@@ -135,37 +128,30 @@ public class IntervalSession implements IntervalTimerHandler{
 		}
 	
 		public IntervalSessionState nextState(){
-			if((intervalNo > 0) && (setNo > 0))
-			{
+			if((intervalNo > 0) && (setNo > 0)){
 				intervalsLeftInSet = intervalNo;
 				setsLeftInSession = setNo;
 				return new WorkState();
 			}
-			else
-			{
+			else{
 				return new FinishState();
 			}
 		}
 	}
 	
-	public IntervalSession(int workPeriod,
-			               int interIntervalRestPeriod,
-			               int intervalNo,
-			               int interSetRestPeriod,
-			               int setNo){
-		this.workPeriod = workPeriod;
-		this.intervalRestPeriod = interIntervalRestPeriod;
-		this.intervalNo = intervalNo;
+	public IntervalSession(IntervalSessionDescription isd){
+		workPeriod = isd.workPeriod;
+		intervalRestPeriod = isd.interIntervalRestPeriod;
+		intervalNo = isd.intervalNo;
 		
-		this.setRestPeriod = interSetRestPeriod;
-		this.setNo = setNo;
+		setRestPeriod = isd.interSetRestPeriod;
+		setNo = isd.setNo;
 		
 		intervalListeners = new ArrayList<IntervalListener>();
 		sessionState = new StartState();
 	}
 	
-	public void addListener(IntervalListener il)
-	{
+	public void addListener(IntervalListener il){
 		intervalListeners.add(il);
 	}
 
@@ -179,14 +165,12 @@ public class IntervalSession implements IntervalTimerHandler{
 		}
 	}
 	
-	public void abort()
-	{
+	public void abort(){
 		stopTimer();
 		notifyListeners(IntervalListener.IntervalEvent.ABORT_SESSION, 0);
 	}
 	
-	public void stopTimer()
-	{
+	public void stopTimer(){
 		if(intervalTimer != null){
 			intervalTimer.cancel();
 			intervalTimer.purge();
@@ -200,7 +184,7 @@ public class IntervalSession implements IntervalTimerHandler{
 		
 	private void notifyListeners(IntervalListener.IntervalEvent ie,
 			                     int timeLeftInState){
-		IntervalInfo ii = new IntervalInfo();
+		IntervalSessionInfo ii = new IntervalSessionInfo();
 		ii.intervalsInSetLeft = intervalsLeftInSet;
 		ii.setsLeft = setsLeftInSession;
 		ii.timeLeft = timeLeftInState;

@@ -97,7 +97,7 @@ public class MusicPlayer implements IntervalListener {
 	}
 	
 	public void handleIntervalEvent(IntervalEvent iv,
-									IntervalInfo intervalInfo) {
+									IntervalSessionInfo intervalInfo) {
 		switch(iv){
 		case START_INTERVAL:
 			playInterval();

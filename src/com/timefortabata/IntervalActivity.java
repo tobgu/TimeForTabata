@@ -50,7 +50,7 @@ public class IntervalActivity extends Activity implements IntervalListener,
     	}
     }
 
-	public void handleIntervalEvent(IntervalEvent iv, IntervalInfo intervalInfo) {
+	public void handleIntervalEvent(IntervalEvent iv, IntervalSessionInfo intervalInfo) {
 		switch(iv){
 		case ABORT_SESSION:
 		case FINISH_SESSION:
@@ -78,7 +78,7 @@ public class IntervalActivity extends Activity implements IntervalListener,
 		updateIntervalInformation(intervalInfo);
 	}
 	
-	private void updateIntervalInformation(final IntervalInfo intervalInfo){
+	private void updateIntervalInformation(final IntervalSessionInfo intervalInfo){
 		guiHandler.post(new Runnable(){
 			public void run(){
 				TextView tv = (TextView) findViewById(R.id.time_left_text);

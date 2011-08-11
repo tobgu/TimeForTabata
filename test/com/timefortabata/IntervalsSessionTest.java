@@ -22,7 +22,7 @@ public class IntervalsSessionTest {
 												 restTime,
 												 intervalNo,
 												 setRestTime,
-												 setNo);
+												 setNo, null);
 		IntervalListener il = mock(IntervalListener.class);
 		is.addListener(il);
 		
@@ -52,7 +52,7 @@ public class IntervalsSessionTest {
 												 restTime,
 												 intervalNo,
 												 setRestTime,
-												 setNo);
+												 setNo, null);
 		IntervalListener il = mock(IntervalListener.class);
 		is.addListener(il);
 		

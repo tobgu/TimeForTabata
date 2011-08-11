@@ -1,6 +1,6 @@
 package com.timefortabata;
 
-public class IntervalInfo {
+public class IntervalSessionInfo {
 	public int setsLeft;
 	public int intervalsInSetLeft;
 	public int timeLeft;
